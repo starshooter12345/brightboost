@@ -1,11 +1,16 @@
 
 
 import {useState} from 'react';
+import {useNavigate, useLocation} from 'react-router-dom'
 
 function Register() {
+  const navigate = useNavigate();
+  const location = useLocation();
   const[name,setName]=useState('');
   const[email,setEmail]=useState('');
   const[password,setPassword]=useState('');
+
+
 
   async function registerUser(event){
     event.preventDefault()
@@ -22,13 +27,15 @@ function Register() {
 
     })
     const data = await response.json()
-    console.log(data)
+    if(data.status === 'ok'){
+      navigate('/login')
+    }
 
   }
 
   return (
     <div>
-      <h1>Register</h1>
+      <h1> Student Register</h1>
       <form onSubmit={registerUser}>
        <label>Student name</label> <input value={name} onChange={(e)=>setName(e.target.value)} type="text" placeholder="Student Name"></input>
         <br/>

@@ -1,6 +1,9 @@
 import {useState} from 'react';
+import {useNavigate} from 'react-router-dom';
 
 function Login() {
+
+  const navigate = useNavigate();
   
   const[email,setEmail]=useState('');
   const[password,setPassword]=useState('');
@@ -20,13 +23,20 @@ function Login() {
 
     })
     const data = await response.json()
+    if (data.student){
+      localStorage.setItem('token',data.student)
+      alert('Login successful')
+      navigate('/dashboard');
+    }else{
+      alert('Please check your username and password')
+    }
     console.log(data)
 
   }
 
   return (
     <div>
-      <h1>Login</h1>
+      <h1> Student Login</h1>
       <form onSubmit={loginUser}>
        
        
