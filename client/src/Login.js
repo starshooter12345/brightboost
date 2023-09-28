@@ -36,6 +36,9 @@ function Login() {
       <br/>
       <p>This is Dishanya</p>
       <p>This is my change</p>
+      <p>Hello Buddhisha</p>
+      <p>Hi</p> 
+      
       <input type="submit" value="Login"/>
       
       </form>
