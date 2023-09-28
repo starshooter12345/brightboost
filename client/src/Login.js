@@ -34,11 +34,7 @@ function Login() {
       <br/>
        <label>Student password</label> <input value={password} onChange={(e)=>setPassword(e.target.value)} type="password" placeholder="password"></input>
       <br/>
-      <p>This is Dishanya</p>
-      <p>This is my change</p>
-      <p>Hi</p> 
-      <p>Hello Buddhisha</p>
-      <p>Hello World</p>
+      
       
       <input type="submit" value="Login"/>
       
