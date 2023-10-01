@@ -9,7 +9,7 @@ const bcrypt = require('bcrypt');
 app.use(cors())
 app.use(express.json())
 
-mongoose.connect('mongodb://localhost:27017/bright-boost')
+mongoose.connect('mongodb://127.0.0.1:27017/bright-boost');
 
 app.post('/api/register', async (req, res) => {
 	console.log(req.body)
