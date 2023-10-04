@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import axios from 'axios';
 
 function StudentRegistration() {
   const [formData, setFormData] = useState({
@@ -18,13 +19,28 @@ function StudentRegistration() {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Here, you would typically send the form data to the backend/API
-    console.log('Student Registered:', formData);
+  const registerStudent = async (studentData) => {
+    try {
+      const config = {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      };
+      // Send a POST request to the backend
+      const res = await axios.post('http://localhost:5000/api/auth/register', studentData, config);
+      console.log('Registration Response:', res.data);  // Log API response
+    } catch (err) {
+      console.error('Registration Error:', err.response.data);  // Log any errors
+    }
+  };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log('Student Registered:', formData);
+    // Call the registerStudent function and wait for it to complete
+    await registerStudent({...formData, isTutor: false});
     // After registration, redirect the user to the login page
-    history.push('/login'); // adjust the path as per your route definition
+    history.push('/login');
   };
 
   return (
