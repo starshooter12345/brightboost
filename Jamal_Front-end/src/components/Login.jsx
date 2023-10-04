@@ -15,9 +15,9 @@ function Login() {
     // In real-world applications, you'd validate the credentials against a backend.
 
     if (role === 'Tutor') {
-      history.push('/session-details'); 
+      history.push('/tutors/sidenav'); 
     } else if (role === 'Student') {
-      history.push('/tutor-availability'); 
+      history.push('/students/sidenav'); 
     } else if (role === 'Admin') {
       history.push('/admin-dashboard'); 
     }

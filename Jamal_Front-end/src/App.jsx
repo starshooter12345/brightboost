@@ -5,16 +5,16 @@ import Footer from './components/Footer';
 import Login from './components/Login';
 import StudentRegistration from './components/StudentRegistration';
 import TutorRegistration from './components/TutorRegistration';
-
+/*AdminDashboard*/
 import AdminDashboard from './components/pages/AdminDashboard/AdminDashboard';
-
-import StudentSideNav from './components/pages/students/StudentSideNav';
+/*students*/
+import StudentLayout from './components/pages/students/StudentLayout'
 import AskQuestion from './components/pages/students/AskQuestion'
 import TutorAvailability from './components/pages/students/TutorAvailability';
-
-import TutorSideNav from './components/pages/tutors/TutorSideNav';
+/*Tutor*/
+/*import TutorLayout from './components/pages/tutors/TutorLayout';
 import SessionDetails from './components/pages/tutors/SessionDetails';
-import ViewQuestions from './components/pages/tutors/ViewQuestions';
+import ViewQuestions from './components/pages/tutors/ViewQuestions';*/
 
 function App() {
   return (
@@ -22,20 +22,38 @@ function App() {
       <Header />
       <div className="main-content">
         <Switch>
+
           <Route path="/login" component={Login} />
           <Route path="/student-registration" component={StudentRegistration} />
           <Route path="/tutor-registration" component={TutorRegistration} />
           <Route path="/admin-dashboard" component={AdminDashboard} />
           
           {/* Routes for student pages */}
-          <Route path="/students/sidenav" component={StudentSideNav} />
-          <Route path="/students/ask-question" component={AskQuestion} />
-          <Route path="/students/tutor-availability" component={TutorAvailability} />
-
           {/* Routes for tutor pages */}
-          <Route path="/tutors/sidenav" component={TutorSideNav} />
-          <Route path="/tutors/session-details" component={SessionDetails} />
-          <Route path="/tutors/view-questions" component={ViewQuestions} />
+          <Route path="/students/ask-question">
+          <StudentLayout>
+            <AskQuestion />
+            </StudentLayout>
+          </Route>
+
+          <Route path="/students/tutor-availability">
+          <StudentLayout>
+            <TutorAvailability />
+            </StudentLayout>
+          </Route>
+
+          {/*<Route path="/tutors/session-details">
+            <TutorLayout>
+            <SessionDetails />
+            </TutorLayout>
+          </Route>
+
+          <Route path="/tutors/view-questions">
+          <TutorLayout>
+            <ViewQuestions />
+            </TutorLayout>
+          </Route>*/}
+
         </Switch>
       </div>
       <Footer />
