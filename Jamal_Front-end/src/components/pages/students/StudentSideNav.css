@@ -6,9 +6,10 @@
   }
   
   .studentLayout li a {
-    text-decoration: none; /* Removes underline */
-    color: inherit; /* Inherit color so that it doesn't use browser defaults */
-  }
+    text-decoration: none;
+    color: red; /* Change to a color that is contrasting to your background */
+}
+
   
   /* Add more styles or customize as needed */
   

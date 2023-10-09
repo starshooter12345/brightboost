@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './StudentSideNav.css';
+
 
 function StudentSideNav() {
   return (
-    <nav>
+    <nav className="studentLayout">
       <ul>
         <li><Link to="/students/my-profile">My Profile</Link></li>
         <li><Link to="/students/ask-question">Ask a Question</Link></li>
@@ -14,4 +16,6 @@ function StudentSideNav() {
   );
 }
 
+
 export default StudentSideNav;
+
