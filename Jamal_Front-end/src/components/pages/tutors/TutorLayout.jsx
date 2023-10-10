@@ -1,7 +1,9 @@
 import React from 'react';
-import TutorSideNav from './pages/tutors/TutorSideNav';
+import './Tutor.css';
+import TutorSideNav from './TutorSideNav';
 
 const TutorLayout = ({ children }) => {
+  console.log(children);
   return (
     <div className="tutorLayout">
       <TutorSideNav />

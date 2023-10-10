@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import TutorLayout from './TutorLayout';
 
 function ViewQuestions() {
   const [questions, setQuestions] = useState([]);
@@ -27,7 +28,9 @@ function ViewQuestions() {
   };
 
   return (
-    <div>
+    <TutorLayout>
+        <div>
+          <h3>Coming from API it cant be showing for now</h3>
       <ul>
         {questions.map((question) => (
           <li key={question.id} onClick={() => handleSelectQuestion(question)}>
@@ -46,6 +49,7 @@ function ViewQuestions() {
         </form>
       )}
     </div>
+    </TutorLayout>
   );
 }
 

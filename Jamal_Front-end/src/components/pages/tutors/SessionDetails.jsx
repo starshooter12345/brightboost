@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import TutorLayout from './TutorLayout';
 
 function SessionDetails() {
   const [attendance, setAttendance] = useState(0);
@@ -21,7 +22,8 @@ function SessionDetails() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <TutorLayout>
+            <form onSubmit={handleSubmit}>
       <label>
         Attendance:
         <input type="number" value={attendance} onChange={handleAttendanceChange} />
@@ -42,6 +44,7 @@ function SessionDetails() {
       
       <button type="submit">Submit</button>
     </form>
+    </TutorLayout>
   );
 }
 

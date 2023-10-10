@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import StudentLayout from './StudentLayout';
 
 function AskQuestion() {
   const [question, setQuestion] = useState('');
@@ -10,7 +11,8 @@ function AskQuestion() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <StudentLayout>
+          <form onSubmit={handleSubmit}>
       <label>
         Question:
         <textarea value={question} onChange={(e) => setQuestion(e.target.value)} />
@@ -25,6 +27,7 @@ function AskQuestion() {
       </label>
       <button type="submit">Ask</button>
     </form>
+    </StudentLayout>
   );
 }
 

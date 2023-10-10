@@ -1,3 +1,8 @@
+.studentLayout {
+  display: flex;
+  gap: 2rem;
+}
+
 /* Resetting styles for the navigation list */
 .studentLayout ul {
     list-style-type: none; /* Removes bullet points */
@@ -7,7 +12,7 @@
   
   .studentLayout li a {
     text-decoration: none; /* Removes underline */
-    color: inherit; /* Inherit color so that it doesn't use browser defaults */
+    color: black; /* Inherit color so that it doesn't use browser defaults */
   }
   
   /* Add more styles or customize as needed */
