@@ -1,32 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import StudentLayout from './StudentLayout';
 
-function TutorAvailability() {
+function ViewTutors() {
   const [tutors, setTutors] = useState([]);
   const [search, setSearch] = useState('');
-  const [loading, setLoading] = useState(true);
 
+  // Dummy fetching of tutor data on component mount
   useEffect(() => {
+    // This is a dummy call, replace it with an actual API call to fetch tutors
     const fetchTutors = async () => {
-      try {
-        const response = await fetch('api/tutors');  // Adjust this API endpoint as per your backend setup
-        const data = await response.json();
-        setTutors(data);
-      } catch (error) {
-        console.error("Failed to fetch tutors:", error);
-      } finally {
-        setLoading(false);
-      }
+      // ... fetch data logic here ...
+      // setTutors(data);
     };
-
     fetchTutors();
   }, []);
+
+  const filteredTutors = tutors.filter(tutor => 
+    tutor.name.toLowerCase().includes(search.toLowerCase()) ||
+    tutor.email.toLowerCase().includes(search.toLowerCase())
+  );
 
   return (
     <StudentLayout>
       <div>
         <label>
-          Search by Expertise:
+          Search by Tutor Name or Email:
           <input 
             type="text" 
             value={search} 
@@ -34,38 +32,37 @@ function TutorAvailability() {
           />
         </label>
 
-        {loading ? (
-          <p>Loading tutors...</p>
-        ) : (
-          <table>
-            <thead>
-              <tr>
-                <th>Tutor</th>
-                <th>Expertise</th>
-                <th>Availability</th>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Expertise</th>
+              <th>Availability</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filteredTutors.map((tutor) => (
+              <tr key={tutor.id}>
+                <td>{tutor.name}</td>
+                <td>{tutor.email}</td>
+                <td>{tutor.expertise}</td>
+                <td>
+                  {Object.keys(tutor.availability)
+                    .filter(day => tutor.availability[day])
+                    .join(", ")}
+                </td>
               </tr>
-            </thead>
-            <tbody>
-              {tutors
-                .filter((tutor) => tutor.expertise.includes(search))
-                .map((tutor) => (
-                  <tr key={tutor.id}>
-                    <td>{tutor.name}</td>
-                    <td>{tutor.expertise}</td>
-                    <td>
-                      {Object.entries(tutor.availability)
-                        .filter(([, isAvailable]) => isAvailable)
-                        .map(([day]) => day)
-                        .join(', ')}
-                    </td>
-                  </tr>
-                ))}
-            </tbody>
-          </table>
-        )}
+            ))}
+          </tbody>
+        </table>
       </div>
     </StudentLayout>
   );
 }
 
-export default TutorAvailability;
+export default ViewTutors;
+
+
+//Here's a breakdown of the main features of this page:
+//This code allows students to search for tutors by either their name or email. If a student types in a part of a tutor's name or email in the search box, the table will filter to show only the matching tutors.
