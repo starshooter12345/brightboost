@@ -14,3 +14,49 @@
       text-decoration: none; /* Removes underline */
       color: black; /* Inherit color so that it doesn't use browser defaults */
     }
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+/* Add your custom styles here */
+form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f7f7f7;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff; /* Blue color, you can change it to your preferred color */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Style for labels with errors, you can customize this as needed */
+label.error {
+  color: red;
+  font-size: 14px;
+  font-weight: normal;
+}
